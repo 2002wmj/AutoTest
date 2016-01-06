@@ -1,0 +1,21 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+    {% for obj in objs %}
+    <form method="post" action="/start_test/">
+    <p>
+        <input type="hidden" name="pcap_path" value="{{ obj.pcap }}" />
+        <input type="hidden" name="pro_id" value="{{ obj.id }}" />
+        <input type="hidden" name="pro_name" value="{{ obj.name }}" />
+        <input type="button" name="Submit" onclick="javascript:history.back(-1);" value="取消">
+        <input type="submit" value="确定"/>
+    </p>
+</form>
+    <p>将自动测试以下协议:</p>
+    <ul>
+        {{ objs.pcap }}
+{#        {% for obj in objs %}#}
+            <li>{{ obj.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

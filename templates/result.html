@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自动化协议测试系统 - 测试结果</title>
+
+<link href="/static/css/jquery.circliful.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<script src="/static/js/jquery-1.10.2.min.js"></script>
+<script src="/static/js/jquery.circliful.min.js"></script>
+
+<style>
+body {
+    font-family: arial,verdana, sans-serif;
+    font-size: 12px;
+}
+
+
+</style>
+</head>
+<body>
+<h1 align="center">协议测试结果如下：</h1>
+</br>
+<center>
+<div id="myStat" data-dimension="250" data-text="{{ ident }}%" data-info="{{ name }}" data-width="30" data-fontsize="38" data-percent="{{ ident }}" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd"></div>
+
+<div id="myStat2" data-dimension="250" data-text="{{ ident }}%" data-info="{{ name }}" data-width="30" data-fontsize="38" data-percent="{{ ident }}" data-fgcolor="#61a9dc" data-bgcolor="#eee"></div>
+</center>
+<script>
+$( document ).ready(function() {
+        $('#myStathalf').circliful();
+		$('#myStat').circliful();
+		$('#myStathalf2').circliful();
+		$('#myStat2').circliful();
+    });
+</script>
+
+</body>
+</html>
