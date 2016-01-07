@@ -53,7 +53,7 @@ def start_test(pacp_path, pro_name):
     idf_clear()
     start_time = datetime.datetime.now() #记录回放开始时间
     Tcpreplay(pacp_file,cache_file)
-    time.sleep(30)                       #获取结果间隔时间
+    time.sleep(28)                       #获取结果间隔时间
     end_time = datetime.datetime.now() #记录回放结束时间
     #start_time = start_time + datetime.timedelta(minutes=-5)
     idf_copy(idf_file) #获取icare的日志文件

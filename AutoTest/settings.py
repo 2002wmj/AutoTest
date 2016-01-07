@@ -24,7 +24,7 @@ SECRET_KEY = '%!^y5n(0gqc*98^$=l_##*dg+711!1==mo=mg+l(lt#%iwb5ya'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+#TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -56,6 +56,22 @@ ROOT_URLCONF = 'AutoTest.urls'
 
 WSGI_APPLICATION = 'AutoTest.wsgi.application'
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR,  'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'debug': DEBUG,
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -95,10 +111,10 @@ STATICFILES_DIRS= (
     os.path.join(BASE_DIR,  'static'),
 )
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
-  #  os.path.join(BASE_DIR,  'sbin'),
-)
+# TEMPLATE_DIRS = (
+#     os.path.join(BASE_DIR,  'templates'),
+#   #  os.path.join(BASE_DIR,  'sbin'),
+# )
 
 MEDIA_ROOT = BASE_DIR
 

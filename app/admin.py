@@ -19,7 +19,7 @@ class Pro_info_admin(admin.ModelAdmin):
     ) #配置增加里面菜单项
 
     search_fields = ('name','desc')
-    list_display = ('name','group','desc','ident','status_chinese','start_date','pcap','log','flow')
+    list_display = ('name','group','desc','ident','status_chinese','start_date','pcap','log','flow','top_app')
     list_filter = ('group','start_date','ident','status')
     list_display_links = ('name','log','flow','pcap')
     actions = [start_test]
