@@ -7,7 +7,10 @@ from app import models
 
 def start_test(modeladmin,request,queryset):
     #配置后台的动作菜单
-    return render_to_response('autest_admin.html',{'objs': queryset,'title': u'是否开始测试?'})
+    if len(queryset) > 1:
+        messages.warning(request, u"目前仅支持选择一个协议进行测试。请不要勾选多个。")
+    else:
+        return render_to_response('autest_admin.html',{'objs': queryset,'title': u'是否开始测试?'})
 start_test.short_description = '启动任务' #中文别名
 
 

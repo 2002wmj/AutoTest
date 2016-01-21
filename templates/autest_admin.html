@@ -1,21 +1,25 @@
 {% extends "admin/base_site.html" %}
 
 {% block content %}
+    <div class=" app-app model-pro_info delete-confirmation delete-selected-confirmation">
     {% for obj in objs %}
+     <p>将自动测试以下协议:</p>
+
+        {{ objs.pcap }}
+{#        {% for obj in objs %}#}
+        <h2>协议名称</h2>
+         <ul>
+            <li>{{ obj.name }}</li>
+        </ul>
     <form method="post" action="/start_test/">
-    <p>
+    <div>
         <input type="hidden" name="pcap_path" value="{{ obj.pcap }}" />
         <input type="hidden" name="pro_id" value="{{ obj.id }}" />
         <input type="hidden" name="pro_name" value="{{ obj.name }}" />
-        <input type="button" name="Submit" onclick="javascript:history.back(-1);" value="取消">
         <input type="submit" value="确定"/>
-    </p>
-</form>
-    <p>将自动测试以下协议:</p>
-    <ul>
-        {{ objs.pcap }}
-{#        {% for obj in objs %}#}
-            <li>{{ obj.name }}</li>
-        {% endfor %}
-    </ul>
+        <a href="#" onclick="window.history.back(); return false;" class="button cancel-link">返回</a>
+    </div>
+    </form>
+    {% endfor %}
+    </div>
 {% endblock %}
