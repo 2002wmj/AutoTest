@@ -2,12 +2,12 @@
 #Author: Minjie Wang
 import os,urllib.request
 from conf import at_config
+from sbin import ssh_mod
 
 def check_icare():
     #判断目标服务器的icare是否正常启动
     result_icare = 0
-    icare_id_cmd = 'ssh root@%s "pidof icare"'%(at_config.icare_ip )
-    icare_id = os.popen(icare_id_cmd).read()
+    icare_id = ssh_mod.icare_system("pidof icare icare_dpdk")
     if not icare_id :
         result_icare = '服务器(%s)的Icare没有正常启动!'%(at_config.icare_ip)
     return result_icare

@@ -2,6 +2,8 @@
 
 Working_dir = '/home/AutoTest' #AutoTest的工作目录
 icare_ip = '192.168.2.254' #icare服务器的IP
+icare_username = 'root' #icare服务器的用户名
+icare_password = 'mengmeng' #icare服务器的密码
 idf_log = '/home/log/idf_log/idf.log' #idf日志保存的位置
 web_ip = '192.168.2.254' #探针web服务器的IP
 

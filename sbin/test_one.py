@@ -2,6 +2,7 @@
 #Author: Minjie Wang
 import os,time,sys,datetime,logging
 from conf import at_config
+from sbin import ssh_mod
 from sbin import get_webdata
 
 
@@ -25,17 +26,15 @@ def idf_clear():
     #清空icare服务器的idf日志
     cut_line = '################### Auto_Test #########################\n'
     clear_cmd = 'echo -ne "%s" >%s' %(cut_line, at_config.idf_log)
-    idf_clear_cmd = "ssh root@%s '%s' "%(at_config.icare_ip, clear_cmd)
-    result = os.system(idf_clear_cmd)
+    result = ssh_mod.icare_system(clear_cmd)
     if result != 0:
         pass
 
 def idf_copy(idf_file):
     #将icare服务器的idf日志拷贝到本地
-    cp_cmd = "ssh root@%s 'cp %s /tmp/idf.log'"%(at_config.icare_ip, at_config.idf_log)
-    scp_cmd = "scp root@%s:/tmp/idf.log %s"%(at_config.icare_ip, idf_file)
-    cp_result = os.system(cp_cmd)
-    scp_result = os.system(scp_cmd)
+    cp_cmd = "cp %s /tmp/idf.log"%(at_config.idf_log)
+    cp_result = ssh_mod.icare_system(cp_cmd)
+    scp_result = ssh_mod.icare_sftp('/tmp/idf.log',idf_file)
 
 
 def start_test(pacp_path, pro_name):
