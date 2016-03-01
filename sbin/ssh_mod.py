@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+#Author: Minjie Wang
 import paramiko
 from conf import at_config
 
