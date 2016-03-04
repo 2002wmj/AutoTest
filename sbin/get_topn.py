@@ -49,9 +49,13 @@ def save_html(topn_file,html_list):
     #保存为html格式的文件，带有表格.
     file = open(topn_file,'w')
     file.write('''
+<!Doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<meta HTTP-EQUIV="expires" CONTENT="0">
 <title>无标题文档</title>
   <style>
      td {text-align:center}
