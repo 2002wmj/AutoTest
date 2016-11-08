@@ -22,7 +22,7 @@ def get_ident(start_time, end_time, pro_name,topn_file):
     url = 'http://%s:8080/web/trafficView/topnApp/getTopNData.action?field4Sort=all&topN=10&mDataProp_0=0&mDataProp_1=1&%smDataProp_2=2&netPro=ip&mDataProp_3=3&mDataProp_4=4&mDataProp_6=6&mDataProp_5=5&mDataProp_8=8&mDataProp_7=7&mDataProp_9=9&sColumns=&iColumns=12&showModel=app&mDataProp_10=10&paramValue=&mDataProp_11=11&paramValues=&paramNames=&unit=Bits&showModels=app&iDisplayStart=0&_TimeCond=cust&iDisplayLength=-1&paramName=&sEcho=1' %(at_config.web_ip, url_time)
     print(url)
     app_date = urllib.request.urlopen(url).read().decode('utf-8')
-    a = "title='添加策略' class='appName  OUTPUT' >%s</a></div>" %(pro_name)
+    a = "<a href='#' class='OUTPUT' >%s</a></div>" %(pro_name)
     b = '"[^w]+width:([^%]+?)%;'
     c = a + b   #拼接正则表达式
     regex = re.compile(c)
