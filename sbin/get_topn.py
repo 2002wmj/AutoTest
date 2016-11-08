@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 def get_topn(app_date, topn_file):
     #获取TOPN每个应用的的详细数据，并保存为网页。
     soup = BeautifulSoup(app_date)
-    app = soup.find_all(class_='appName  OUTPUT')
+    app = soup.find_all('a',class_='OUTPUT')
     app_list = return_list(app)
     flow = soup.find_all('label',class_='OUTPUT')
     flow_list = return_list(flow)
